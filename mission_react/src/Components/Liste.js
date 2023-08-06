@@ -1,54 +1,55 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { LuEdit } from 'react-icons/lu';
+import { RiDeleteBin5Line } from 'react-icons/ri';
+import { BiAddToQueue } from 'react-icons/bi';
+
+
+
 
 export default function Liste() {
-    const [mission, setMission] = useState([])
+  const [mission, setMission] = useState([])
     useEffect(() => {
       fetchMission();
     },[]
     )
     const fetchMission = async () => {
-      await axios.get('http://127.0.0.1:8000/api/mission').then(({ data }) => {setMission(data)}) 
+      await axios.get('http://127.0.0.1:8000/api/mission').then(({ data }) => {setMission(data)})
     }
     const deleteMission = async (id) => {
       await axios.delete('http://127.0.0.1:8000/api/mission/' + id)
       .then(({ data }) => {
-        console.log(data.message)
         fetchMission();
-      }).catch(({ response: { data } }) => {
-        console.log(data.message)
       })
     }
     return(
-      <div>
+      <div className="container">
         <Link to='/create'>
-          <button className="btn btn-warning m-2">Create New Mission</button>
+          <button className="btn btn-warning my-3"><BiAddToQueue/> Mission</button>
         </Link>
-        <table className="container my-4 text-center">
-          <tr style={{"backgroundColor":"#E8E8E8"}}>
-            <th style={{"border": "1px solid black"}}>Description</th>
-            <th style={{"border": "1px solid black"}}>Deadline</th>
-            <th style={{"border": "1px solid black"}}>Is_Completed</th>
-            <th style={{"border": "1px solid black"}}>Completed_At</th> 
-            <th style={{"border": "1px solid black"}}>Actions</th> 
+        <table width="100%">
+          <tr>
+            <th>Description</th>
+            <th>Deadline</th>
+            <th>Is_Completed</th>
+            <th>Completed_At</th> 
+            <th>Actions</th>
           </tr>
-          {
-            mission.length > 0 && (
-              mission.map((row,key)=>(
-                <tr key={key}>
-                  <td style={{"border": "1px solid black"}}>{row.description}</td>
-                  <td style={{"border": "1px solid black"}}>{row.deadline}</td>
-                  <td style={{"border": "1px solid black"}}>{row.isCompleted}</td>
-                  <td style={{"border": "1px solid black"}}>{row.completedAt}</td>
-                  <td style={{"border": "1px solid black"}}>
-                    <Link className="btn btn-secondary" to={`/update/${row.id}`}>Update</Link>                  
-                    <button className="btn btn-danger mx-3" onClick={() => deleteMission(row.id)}>Delete</button>
-                  </td>       
-                </tr>
-              ))
-            )
-          }
+          {mission.map((item,id)=>(
+            <tr key={id}>
+              <td>{item.description}</td>
+              <td>{item.deadline}</td>
+              <td>{item.isCompleted}</td>
+              <td>{item.completedAt}</td>
+              <td>
+                <Link to={`/update/${item.id}`} >
+                  <button className="btn btn-secondary mx-1"><LuEdit/> Update</button>
+                </Link>                  
+                <button onClick={() => deleteMission(item.id)} className="btn btn-danger mx-1"><RiDeleteBin5Line/> Delete</button>
+              </td>       
+            </tr>
+          ))}
         </table>  
       </div> 
     )

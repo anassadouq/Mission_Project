@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('description');
             $table->date('deadline');
             $table->string('isCompleted');
-            $table->string('completedAt');
+            $table->date('completedAt')->nullable();
             $table->timestamps();
         });
     }

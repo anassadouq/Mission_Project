@@ -34,7 +34,7 @@ export default function Create(){
                     <tr>
                         <td>Description</td>
                         <td>
-                            <input type="text" name="description" onChange={(e)=>{setDescription(e.target.value)}} className="my-2"/>
+                            <input type="text" name="description" onChange={(e)=>{setDescription(e.target.value)}} className="my-4"/>
                         </td>
                     </tr>
                     <tr>

@@ -28,11 +28,11 @@ export default function Liste() {
         <Link to='/create'>
           <button className="btn btn-warning my-3"><BiAddToQueue/> Mission</button>
         </Link>
-        <table width="100%">
+        <table width="100%" className="text-center">
           <tr>
             <th>Description</th>
             <th>Deadline</th>
-            <th>Is_Completed</th>
+            <th>Completed</th>
             <th>Completed_At</th> 
             <th>Actions</th>
           </tr>
@@ -40,7 +40,13 @@ export default function Liste() {
             <tr key={id}>
               <td>{item.description}</td>
               <td>{item.deadline}</td>
-              <td>{item.isCompleted}</td>
+              <td>
+                {item.isCompleted === 'Yes' ? (
+                  <b><span className="text-success">Yes</span></b>
+                ) : (
+                  <b><span className="text-danger">No</span></b>
+                )}
+              </td>
               <td>{item.completedAt}</td>
               <td>
                 <Link to={`/update/${item.id}`} >

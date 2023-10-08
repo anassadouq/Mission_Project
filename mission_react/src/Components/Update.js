@@ -72,8 +72,8 @@ export default function Update() {
                     <tr>
                         <td>Is_Completed</td>
                         <td>
-                            <input type="radio" name="isCompleted" value="Yes" onChange={(e)=>{setIsCompleted(e.target.value)}} className="my-4 mx-1"/>Yes
-                            <input type="radio" name="isCompleted" value="No" onChange={(e)=>{setIsCompleted(e.target.value)}} className="my-4 mx-1"/>No
+                            <input type="radio" name="isCompleted" value="Yes" onChange={(e)=>{setIsCompleted(e.target.value)}} className="my-4 mx-1" checked={isCompleted === "Yes"}/>Yes
+                            <input type="radio" name="isCompleted" value="No" onChange={(e)=>{setIsCompleted(e.target.value)}} className="my-4 mx-1" checked={isCompleted === "No"}/>No
                         </td>
                     </tr>
                     <tr>

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { BiAddToQueue } from 'react-icons/bi';
-
+import './Style.css'; 
 
 export default function Create(){
     const navigate = useNavigate();
@@ -29,29 +29,38 @@ export default function Create(){
 
     return(
         <center>
-            <form onSubmit={createMission}>
+            <div class="center-container">
+            <form onSubmit={createMission} class="custom-form">
                 <table>
                     <tr>
-                        <td>Description</td>
+                        <td>
+                            <b>Description</b>
+                        </td>
                         <td>
                             <input type="text" name="description" onChange={(e)=>{setDescription(e.target.value)}} className="my-4"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>Deadline</td>
+                        <td>
+                            <b>Deadline</b>
+                        </td>
                         <td>
                             <input type="date" name="deadline" onChange={(e)=>{setDeadline(e.target.value)}} className="my-4"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>Is_Completed</td>
+                        <td>
+                            <b>Is_Completed</b>
+                        </td>
                         <td>
                             <input type="radio" name="isCompleted" value="Yes" onChange={(e)=>{setIsCompleted(e.target.value)}} className="my-4 mx-1"/>Yes
                             <input type="radio" name="isCompleted" value="No" onChange={(e)=>{setIsCompleted(e.target.value)}} className="my-4 mx-1"/>No
                         </td>
                     </tr>
                     <tr>
-                        <td>Completed_At</td>
+                        <td>
+                            <b>Completed_At</b>
+                        </td>
                         <td>
                             <input type="date" name="completedAt" onChange={(e)=>{setCompletedAt(e.target.value)}} className="my-4"/>
                             <button className="btn btn-warning my-3 mx-2"><BiAddToQueue/> Mission</button>
@@ -59,6 +68,7 @@ export default function Create(){
                     </tr>
                 </table>
             </form>
+            </div>
         </center>
     )
 }

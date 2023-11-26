@@ -2,7 +2,7 @@ import React, { useState ,useEffect} from "react";
 import axios from "axios";
 import { useNavigate ,useParams} from "react-router-dom";
 import { LuEdit } from 'react-icons/lu';
-
+import './Style.css'; 
 
 export default function Update() {
 
@@ -55,36 +55,38 @@ export default function Update() {
 
     return (
         <center>
-            <form onSubmit={updateMission}>
-                <table>
-                    <tr>
-                        <td>Description</td>
-                        <td>
-                            <input type="text" name="description" value={description} onChange={(e)=>{setDescription(e.target.value)}} className="my-2"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Deadline</td>
-                        <td>
-                            <input type="date" name="deadline" value={deadline} onChange={(e)=>{setDeadline(e.target.value)}} className="my-4"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Is_Completed</td>
-                        <td>
-                            <input type="radio" name="isCompleted" value="Yes" onChange={(e)=>{setIsCompleted(e.target.value)}} className="my-4 mx-1" checked={isCompleted === "Yes"}/>Yes
-                            <input type="radio" name="isCompleted" value="No" onChange={(e)=>{setIsCompleted(e.target.value)}} className="my-4 mx-1" checked={isCompleted === "No"}/>No
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Completed_At</td>
-                        <td>
-                            <input type="date" name="completedAt" value={completedAt} onChange={(e)=>{setCompletedAt(e.target.value)}} className="my-4"/>
-                            <button className="btn btn-secondary mx-2"><LuEdit/> Update</button>
-                        </td>
-                    </tr>
-                </table>                           
-            </form>
+            <div class="center-container">
+                <form onSubmit={updateMission} class="custom-form">
+                    <table>
+                        <tr>
+                            <td>Description</td>
+                            <td>
+                                <input type="text" name="description" value={description} onChange={(e)=>{setDescription(e.target.value)}} className="my-2"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Deadline</td>
+                            <td>
+                                <input type="date" name="deadline" value={deadline} onChange={(e)=>{setDeadline(e.target.value)}} className="my-4"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Is_Completed</td>
+                            <td>
+                                <input type="radio" name="isCompleted" value="Yes" onChange={(e)=>{setIsCompleted(e.target.value)}} className="my-4 mx-1" checked={isCompleted === "Yes"}/>Yes
+                                <input type="radio" name="isCompleted" value="No" onChange={(e)=>{setIsCompleted(e.target.value)}} className="my-4 mx-1" checked={isCompleted === "No"}/>No
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Completed_At</td>
+                            <td>
+                                <input type="date" name="completedAt" value={completedAt} onChange={(e)=>{setCompletedAt(e.target.value)}} className="my-4"/>
+                                <button className="btn btn-secondary mx-2"><LuEdit/> Update</button>
+                            </td>
+                        </tr>
+                    </table>                           
+                </form>
+            </div>
         </center>
     )
 }

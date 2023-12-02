@@ -31,7 +31,7 @@ class MissionController extends Controller {
             'description'=>'required',
             'deadline' => 'required',
             'isCompleted' => 'required',
-            'completedAt' => 'required',
+            'completedAt' => '',
         ]);
         $mission->fill($request->post())->update();
         return response()->json([

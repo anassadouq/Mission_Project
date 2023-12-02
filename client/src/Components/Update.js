@@ -5,7 +5,6 @@ import { LuEdit } from 'react-icons/lu';
 import './Style.css'; 
 
 export default function Update() {
-
     const navigate = useNavigate();
     const { id } = useParams();
 
@@ -59,29 +58,42 @@ export default function Update() {
                 <form onSubmit={updateMission} class="custom-form">
                     <table>
                         <tr>
-                            <td>Description</td>
                             <td>
-                                <input type="text" name="description" value={description} onChange={(e)=>{setDescription(e.target.value)}} className="my-2"/>
+                                <b>Description</b>
+                            </td>
+                            <td>
+                                <textarea name="description" value={description} cols="60" rows="3" className="my-4" onChange={(e)=>{setDescription(e.target.value)}}></textarea>
                             </td>
                         </tr>
                         <tr>
-                            <td>Deadline</td>
                             <td>
-                                <input type="date" name="deadline" value={deadline} onChange={(e)=>{setDeadline(e.target.value)}} className="my-4"/>
+                                <b>Deadline</b>
+                            </td>
+                            <td>
+                                <input type="date" name="deadline" value={deadline} onChange={(e)=>{setDeadline(e.target.value)}} className="form-control my-4"/>
                             </td>
                         </tr>
                         <tr>
-                            <td>Is_Completed</td>
+                            <td>
+                                <b>Is_Completed</b>
+                            </td>
                             <td>
                                 <input type="radio" name="isCompleted" value="Yes" onChange={(e)=>{setIsCompleted(e.target.value)}} className="my-4 mx-1" checked={isCompleted === "Yes"}/>Yes
                                 <input type="radio" name="isCompleted" value="No" onChange={(e)=>{setIsCompleted(e.target.value)}} className="my-4 mx-1" checked={isCompleted === "No"}/>No
                             </td>
                         </tr>
                         <tr>
-                            <td>Completed_At</td>
                             <td>
-                                <input type="date" name="completedAt" value={completedAt} onChange={(e)=>{setCompletedAt(e.target.value)}} className="my-4"/>
-                                <button className="btn btn-secondary mx-2"><LuEdit/> Update</button>
+                                <b>Completed_At</b>
+                            </td>
+                            <td>
+                                <input type="date" name="completedAt" value={completedAt} onChange={(e)=>{setCompletedAt(e.target.value)}} className="form-control my-4"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <button className="form-control btn btn-secondary"><LuEdit/> Update</button>
                             </td>
                         </tr>
                     </table>                           

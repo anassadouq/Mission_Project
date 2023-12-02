@@ -37,7 +37,7 @@ export default function Create(){
                             <b>Description</b>
                         </td>
                         <td>
-                            <input type="text" name="description" onChange={(e)=>{setDescription(e.target.value)}} className="my-4"/>
+                            <textarea name="description" placeholder="Description" cols="60" rows="3" className="my-4" onChange={(e)=>{setDescription(e.target.value)}}></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -45,7 +45,7 @@ export default function Create(){
                             <b>Deadline</b>
                         </td>
                         <td>
-                            <input type="date" name="deadline" onChange={(e)=>{setDeadline(e.target.value)}} className="my-4"/>
+                            <input type="date" name="deadline" onChange={(e)=>{setDeadline(e.target.value)}} className="my-4 form-control"/>
                         </td>
                     </tr>
                     <tr>
@@ -62,8 +62,13 @@ export default function Create(){
                             <b>Completed_At</b>
                         </td>
                         <td>
-                            <input type="date" name="completedAt" onChange={(e)=>{setCompletedAt(e.target.value)}} className="my-4"/>
-                            <button className="btn btn-warning my-3 mx-2"><BiAddToQueue/> Mission</button>
+                            <input type="date" name="completedAt" onChange={(e)=>{setCompletedAt(e.target.value)}} className="form-control my-4"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button className="form-control btn btn-warning"><BiAddToQueue/> Mission</button>
                         </td>
                     </tr>
                 </table>

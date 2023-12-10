@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Mission extends Model
 {
     use HasFactory;
-    protected $fillable = ['description','deadline','isCompleted','completedAt'];
+    protected $fillable = [
+        'description',
+        'deadline',
+        'isCompleted',
+        'completedAt'
+    ];
 }

@@ -27,13 +27,7 @@ class MissionController extends Controller {
     }
  
     public function update(Request $request, Mission $mission){
-        $request->validate([
-            'description'=>'required',
-            'deadline' => 'required',
-            'isCompleted' => 'required',
-            'completedAt' => '',
-        ]);
-        $mission->fill($request->post())->update();
+        $mission->update($request->all());
         return response()->json([
             'message' => 'Item updated successfully'
         ]);
